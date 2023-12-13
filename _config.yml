@@ -9,7 +9,7 @@ cover         : "/assets/img/cover.png" # image uri like logo/cover image for si
 twitter_username: "xdavidhu"
 
 # Build settings
-permalink   : bugs/:slug
+permalink   : notes/:slug
 markdown    : kramdown
 highlighter : rouge
 

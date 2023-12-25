@@ -187,6 +187,10 @@ hr {
   @extend .link;
 }
 
+.post-link {
+  font-weight: 600;
+}
+
 .post {
   @extend .clearfix;
 }

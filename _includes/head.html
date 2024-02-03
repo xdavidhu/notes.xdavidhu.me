@@ -6,20 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% assign page_title = '' %}
+  {% assign og_page_title = '' %}
   {% if page.title == "Home" %}
-      {% capture page_title %}
-        {{ site.title_left }}{{ site.title_right }} - {{ site.description }}
-        {%if paginator and paginator.page != 1 %} - {{ paginator.page }}{% endif %}
-      {% endcapture %}
+    {% capture page_title %}
+      notes.xdavidhu.me
+    {% endcapture %}
+    {% capture og_page_title %}
+      notes.xdavidhu.me
+    {% endcapture %}
   {% else %}
       {% capture page_title %}
-          {%if page.slug == 'category' %}Category: {% endif %}
-          {%if page.slug == 'tag' %}Tag: {% endif %} {{ page.title }} | {{ site.title_left }}{{ site.title_right }}
+        {{ page.title }} | {{ site.description }}
+      {% endcapture %}
+      {% capture og_page_title %}
+        {{ page.title }}
       {% endcapture %}
   {% endif %}
-  {% capture page_title %}
-      {{ page_title | strip | rstrip | lstrip | escape | strip_newlines }}
-  {% endcapture %}
+
+  {% capture page_title %}{{ page_title | strip | rstrip | lstrip | escape | strip_newlines }}{% endcapture %}
+  {% capture og_page_title %}{{ og_page_title | strip | rstrip | lstrip | escape | strip_newlines }}{% endcapture %}
 
   <title>{{ page_title }}</title>
 
@@ -35,9 +40,7 @@
       {%if page.slug == 'tag' %} Tag: {{ page.title }}{% endif %}
   {% endcapture %}
 
-  {% capture page_description %}
-      {{ page_description | strip | rstrip | lstrip | escape | strip_newlines }}
-  {% endcapture %}
+  {% capture page_description %}{{ page_description | strip | rstrip | lstrip | escape | strip_newlines }}{% endcapture %}
 
   <meta name="description" content="{{ page_description }}">
   <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
@@ -49,14 +52,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="{{ site.twitter_username }}">
   <meta name="twitter:creator" content="{{ site.twitter_username }}">
-  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:title" content="{{ og_page_title }}">
   <meta name="twitter:description" content="{{ site.description }}">
-  <meta name="twitter:image" content="https://david-og-card-generator.vercel.app/api/notes?title={% if page.layout != 'default' %}{{ page.title | url_encode }}{% endif %}">
+  <meta name="twitter:image" content="https://david-og-card-generator.vercel.app/api/notes?title={{ og_page_title }}">
 
   <!-- Social: Open Graph -->
-  <meta name="title" property="og:title" content="{{ page.title }}">
+  <meta name="title" property="og:title" content="{{ og_page_title }}">
   <meta name="description" property="og:description" content="{{ site.description }}">
-  <meta name="image" property="og:image" content="https://david-og-card-generator.vercel.app/api/notes?title={% if page.layout != 'default' %}{{ page.title | url_encode }}{% endif %}">
+  <meta name="image" property="og:image" content="https://david-og-card-generator.vercel.app/api/notes?title={{ og_page_title }}">
   <meta name="author" content="{{ site.author.name }}">
 
   <!-- Canonical link tag -->

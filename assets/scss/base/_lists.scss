@@ -7,13 +7,13 @@ ol {
   &%default-ul {
     list-style-type: disc;
     margin-bottom: $small-spacing;
-    padding-left: $base-spacing;
+    padding-left: $small-spacing;
   }
 
   &%default-ol {
     list-style-type: decimal;
     margin-bottom: $small-spacing;
-    padding-left: $base-spacing;
+    padding-left: $small-spacing;
   }
 }
 

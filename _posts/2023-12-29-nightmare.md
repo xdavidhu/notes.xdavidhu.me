@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I'm a monster"
+title: "Nightmare"
 ---
 
 *I just woke up from a very disturbing dream.*

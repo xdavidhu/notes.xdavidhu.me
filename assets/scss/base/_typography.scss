@@ -144,6 +144,24 @@ dl {
     list-style-type: square;
 }
 
+.post-content ul {
+    list-style-type: none;
+    > li {
+        position: relative;
+        padding-left: 1em;
+        padding-bottom: 0.15em;
+        &::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+
+.post-content p:not(.note-date) + ul {
+    margin-top: -0.7em;
+}
+
 // Keep-notes article look: faded date labels, capped/centered/rounded images.
 // Opt in per post with `post_class: notes-feed` in the front matter.
 .notes-feed {

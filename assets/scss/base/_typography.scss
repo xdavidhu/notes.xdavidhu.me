@@ -144,6 +144,33 @@ dl {
     list-style-type: square;
 }
 
+// Keep-notes article look: faded date labels, capped/centered/rounded images.
+// Opt in per post with `post_class: notes-feed` in the front matter.
+.notes-feed {
+    .note-count {
+        margin-top: 2.2em;
+        margin-bottom: 2.2em;
+    }
+
+    .note-date {
+        color: #9a9a9a;
+        font-size: .9em;
+        letter-spacing: .03em;
+        margin-top: 2.2em;
+        margin-bottom: .35em;
+    }
+
+    img {
+        max-width: 340px;
+        max-height: 460px;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 1.2em auto;
+        border-radius: 8px;
+    }
+}
+
 ol {
     list-style-type: decimal;
 }
